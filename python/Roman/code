@@ -1,0 +1,67 @@
+x=0
+y=0
+s=400
+v=300
+sduigX=0
+sduigY=0
+kray=300
+def setup():
+    size(800,600)
+    background(80,179,47)
+    translate(400,300)
+    frameRate(10)
+
+    
+def draw():
+    global s,v, sduigX, sduigY
+    global kray
+    background(80,179,47)
+    fill(255)
+    rect(0,250,50,100)
+    ellipse(s,v,25,25)
+    rect(x,y,50,50)
+  
+    s=s+sduigX
+    v=v+sduigY
+    
+    
+    
+    if ((x-s)*(x-s)+(y-v)*(y-v))<(50*50):
+        if x<s:
+            sduigX=+5
+            sduigY=0
+        else:
+            if x>s:
+                sduigX=-5
+                sduigY=0
+            else:
+                if y>v:
+                    sduigY = -5
+                    sdvigX = 0
+                else:
+                    if y<v:
+                        sduigX = 0
+                        sduigY = +1
+
+                        
+                
+            
+            
+        
+        
+           
+        
+    
+def keyPressed():
+    global x,y
+ 
+    if key==CODED:
+        if keyCode==UP:
+            y=y-10
+        elif keyCode==DOWN:
+            y=y+10
+        elif keyCode==LEFT:
+            x=x-10
+        elif keyCode==RIGHT:
+            x=x+10            
+    

@@ -1,0 +1,88 @@
+r= 0
+g= 0
+b= 0
+shift = 0
+def setup():
+    size(600,400)
+    background(100)
+def draw():
+    global r,g,b,shift
+    
+
+    stroke (r,g,b)
+
+    fill(255,255,0)
+    rect(60,110,45,45)
+    fill(0)
+    rect(10,180,45,45)
+    fill(100,255,245)
+    rect(420,300,100,65)
+    fill(0,128,0)
+    rect(10,10,45,45)
+    fill(0,0,255)
+    rect(10,65,45,45)
+    fill(255,0,0)
+    rect(10,120,45,45)
+    fill(255,255,255)
+    rect(60,10,45,45)
+    fill(100)
+    rect(60,60,45,45)
+    rect(150,10,45,45)
+    circle(222,27,22)
+
+    rect(300,15,55,13)
+    if mousePressed == True:
+        if shift == 0:
+            line(mouseX,mouseY,pmouseX,pmouseY)
+        if shift == 1:
+            circle(mouseX,mouseY,10)
+        if shift == 2:
+            rect(mouseX,mouseY,10,10)
+def mouseClicked():
+    global r,g,b,shift
+    
+    if mouseX > 150 and mouseX < 195 and mouseY > 10 and mouseY < 55:
+        shift = 2
+    if mouseX > 200 and mouseX < 244 and mouseY > 10 and mouseY < 32:
+        shift = 1
+    if mouseX > 300 and mouseX < 355 and mouseY > 15 and mouseY < 28:
+        shift = 0
+        
+    if mouseX > 60 and mouseX < 105 and mouseY > 110 and mouseY < 155:
+        strokeWeight(1)
+        r = 255
+        g = 255
+        b = 0
+    if mouseX > 10 and mouseX < 55 and mouseY > 180 and mouseY < 225:
+        strokeWeight(1)
+        r = 0
+        g = 0
+        b = 0
+    if mouseX > 420 and mouseX < 520 and mouseY > 300 and mouseY < 365:
+        strokeWeight(1)
+        background(100)
+    if mouseX > 10 and mouseX < 55 and mouseY > 65 and mouseY < 110:
+        strokeWeight(1)
+        r=0
+        g=0
+        b=255
+    if mouseX > 10 and mouseX < 55 and mouseY > 120 and mouseY < 165:
+        strokeWeight(1)
+        r=255
+        g=0
+        b=0
+    if mouseX > 60 and mouseX < 105 and mouseY > 10 and mouseY < 55:
+        strokeWeight(1)
+        r=255
+        g=255
+        b=255
+    if mouseX > 10 and mouseX < 55 and mouseY > 10 and mouseY < 55:
+        strokeWeight(1)
+        r=0
+        g=188
+        b=0
+    if mouseX > 60 and mouseX < 105 and mouseY > 60 and mouseY < 105:
+        strokeWeight(20)
+        r=100
+        g=100
+        b=100

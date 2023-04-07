@@ -1,0 +1,120 @@
+player.onChat("босс", function () {
+    player.teleport(world(665, 110, 819))
+    gameplay.setGameMode(
+    SURVIVAL,
+    mobs.target(NEAREST_PLAYER)
+    )
+    mobs.applyEffect(STRENGTH, mobs.target(NEAREST_PLAYER), 999, 1)
+    mobs.applyEffect(BLINDNESS, mobs.target(NEAREST_PLAYER), 9999, 4)
+    mobs.applyEffect(MINING_FATIGUE, mobs.target(NEAREST_PLAYER), 9999, 255)
+    mobs.applyEffect(STRENGTH, mobs.target(ALL_ENTITIES), 9999, 2)
+    mobs.spawn(mobs.monster(WITHER_SKELETON), world(665, 110, 819))
+    mobs.applyEffect(REGENERATION, mobs.target(NEAREST_PLAYER), 9999, 5)
+})
+mobs.onMobKilled(mobs.monster(WITHER_SKELETON), function () {
+    mobs.kill(
+    mobs.target(ALL_ENTITIES)
+    )
+    gameplay.setGameMode(
+    ADVENTURE,
+    mobs.target(NEAREST_PLAYER)
+    )
+})
+player.onItemInteracted(IRON_SHOVEL, function () {
+    blocks.fill(
+    BLACK_CONCRETE,
+    pos(0, -1, 100),
+    pos(100, -1, 0),
+    FillOperation.Replace
+    )
+})
+player.onItemInteracted(IRON_AXE, function () {
+    blocks.fill(
+    BLACK_CONCRETE,
+    pos(11, -1, 0),
+    pos(0, -11, 11),
+    FillOperation.Replace
+    )
+})
+mobs.onMobKilled(CHICKEN, function () {
+    mobs.kill(
+    mobs.target(ALL_ENTITIES)
+    )
+    gameplay.toggleDownfall()
+    mobs.clearEffect(mobs.target(NEAREST_PLAYER))
+    gameplay.setGameMode(
+    ADVENTURE,
+    mobs.target(NEAREST_PLAYER)
+    )
+})
+player.onItemInteracted(STONE_SWORD, function () {
+    blocks.fill(
+    GLOWSTONE,
+    pos(0, -1, 0),
+    pos(0, -9, 0),
+    FillOperation.Replace
+    )
+})
+player.onItemInteracted(IRON_SWORD, function () {
+    blocks.fill(
+    GLOWSTONE,
+    pos(0, -1, 0),
+    pos(0, -9, 11),
+    FillOperation.Replace
+    )
+})
+player.onItemInteracted(STONE_AXE, function () {
+    blocks.fill(
+    AIR,
+    pos(11, -1, 0),
+    pos(0, -11, 11),
+    FillOperation.Replace
+    )
+})
+player.onItemInteracted(IRON_INGOT, function () {
+    mobs.applyEffect(HEALTH_BOOST, mobs.target(NEAREST_PLAYER), 999, 255)
+    mobs.applyEffect(LEVITATION, mobs.target(ALL_ENTITIES), 120, 255)
+    mobs.applyEffect(NIGHT_VISION, mobs.target(NEAREST_PLAYER), 120, 255)
+})
+player.onChat("погнали", function () {
+    mobs.applyEffect(BLINDNESS, mobs.target(NEAREST_PLAYER), 10, 255)
+    player.say("Поехали")
+    gameplay.timeSet(gameplay.time(MIDNIGHT))
+    player.teleport(world(665, 110, 819))
+    gameplay.toggleDownfall()
+    gameplay.setGameMode(
+    SURVIVAL,
+    mobs.target(NEAREST_PLAYER)
+    )
+    mobs.applyEffect(JUMP_BOOST, mobs.target(NEAREST_PLAYER), 9999, 4)
+    mobs.applyEffect(MINING_FATIGUE, mobs.target(NEAREST_PLAYER), 9999, 255)
+    mobs.applyEffect(STRENGTH, mobs.target(NEAREST_PLAYER), 9999, 10)
+    mobs.applyEffect(SPEED, mobs.target(NEAREST_PLAYER), 9999, 4)
+    mobs.applyEffect(REGENERATION, mobs.target(NEAREST_PLAYER), 9999, 5)
+    for (let index = 0; index < 150; index++) {
+        mobs.spawn(mobs.monster(ZOMBIE), randpos(
+        world(665, 110, 819),
+        world(639, 111, 864)
+        ))
+    }
+    mobs.spawn(CHICKEN, randpos(
+    world(665, 110, 819),
+    pos(639, 111, 864)
+    ))
+})
+player.onChat("поехали 2", function () {
+    gameplay.timeSet(gameplay.time(NIGHT))
+    player.teleport(world(665, 110, 819))
+    mobs.applyEffect(STRENGTH, mobs.target(NEAREST_PLAYER), 999, 5)
+    mobs.applyEffect(REGENERATION, mobs.target(NEAREST_PLAYER), 999, 10)
+    mobs.spawn(CHICKEN, randpos(
+    world(665, 110, 819),
+    world(639, 111, 864)
+    ))
+    for (let index = 0; index < 100; index++) {
+        mobs.spawn(mobs.monster(SKELETON), randpos(
+        world(665, 110, 819),
+        world(639, 111, 864)
+        ))
+    }
+})

@@ -1,0 +1,12 @@
+def setup():
+    size(800,600)
+    background(0,0,0)
+    frameRate(2)
+def draw():
+    stroke(255)
+    fill(0,255,0)
+    rect(0,500,1000,100)
+    strokeWeight(5)
+    point(random(0,800),random(0,500))
+    fill(128,128,128)
+    ellipse(780,20,200,150)

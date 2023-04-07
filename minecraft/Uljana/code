@@ -1,0 +1,21 @@
+player.onChat("1", function () {
+    blocks.fill(
+    AIR,
+    pos(1087, 59, -365),
+    pos(1091, 63, -360),
+    FillOperation.Destroy
+    )
+})
+player.onTravelled(WALK, function () {
+    blocks.place(ORANGE_WOOL, pos(0, -1, 0))
+})
+mobs.give(
+mobs.target(LOCAL_PLAYER),
+BOW,
+1
+)
+mobs.give(
+mobs.target(LOCAL_PLAYER),
+ARROW,
+1
+)
